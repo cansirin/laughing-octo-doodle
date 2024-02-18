@@ -65,7 +65,7 @@ const groupByLink = (acc: any, curr: any) => {
   return acc;
 };
 
-app.get("/ping", (req, res) => {
+app.get("/api/ping", (req, res) => {
   return res.send("pong 🏓");
 });
 
