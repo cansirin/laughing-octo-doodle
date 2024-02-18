@@ -69,7 +69,7 @@ app.get("/ping", (req, res) => {
   return res.send("pong 🏓");
 });
 
-app.post("/check-a11y", async (req, res) => {
+app.post("/api/check-a11y", async (req, res) => {
   const body = req.body;
   const url = body.url;
   console.log(url);
@@ -80,6 +80,7 @@ app.post("/check-a11y", async (req, res) => {
   const links: string[] = [];
   try {
     const crawler = new PlaywrightCrawler({
+      maxRequestsPerCrawl: 10,
       // Use the requestHandler to process each of the crawled pages.
       async requestHandler({ request, page, enqueueLinks, log }) {
         links.push(request.loadedUrl ?? "");
@@ -126,7 +127,7 @@ app.post("/check-a11y", async (req, res) => {
   }
 });
 
-const port = 3000;
+const port = 4000;
 app.listen(port, () => {
   console.log(`Accessibility checker running at http://localhost:${port}`);
 });
