@@ -114,6 +114,7 @@ app.post("/check-a11y", async (req, res) => {
     await Promise.all(promises);
 
     await browser.close();
+
     res.json({ url, violations, incompleteRules, inapplicableRules });
   } catch (error) {
     console.error(error);
