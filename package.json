@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node api/server.ts"
+    "start": "npx ts-node api/server.ts",
+    "nodemon": "nodemon --exec ts-node api/server.ts"
   },
   "keywords": [],
   "author": "",
